@@ -7,7 +7,7 @@ Created for the Udemy course [React Testing Library with Jest / Vitest](https://
 This project was created using this command:
 
 ```sh
-npm create vite@latest vite-starter -- --template react
+npm create   vite@latest vite-starter -- --template react
 ```
 
 and then following all of the steps below.
