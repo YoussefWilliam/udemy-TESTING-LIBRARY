@@ -1,0 +1,21 @@
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.midnight-blue {
+  background-color: midnightblue;
+}
+
+.medium-violet-red {
+  background-color: mediumvioletred;
+}
+
+button {
+  :disabled {
+    background-color: grey;
+  }
+}
