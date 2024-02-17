@@ -8,7 +8,6 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:testing-library/react",
     "plugin:vitest/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
@@ -20,6 +19,9 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "no-unused-vars": "warn", // warning, not error
+    "vitest/expect-expect": "off", // eliminate distracting red squiggles while writing tests
+    "react/prop-types": "off", // turn off props validation
   },
   globals: {
     ...vitest.environments.env.globals,
