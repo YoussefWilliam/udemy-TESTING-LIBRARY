@@ -65,7 +65,7 @@ describe("pop-hovers reflect properly on hovering", () => {
     const termsAndConditions = screen.getByText("Terms and Conditions");
 
     user.hover(termsAndConditions).then(() => {
-      const queryItem = screen.getByText(/why did you hover?/i);
+      const queryItem = screen.getByText(/Conditions?/i);
       expect(queryItem).toBeInTheDocument();
     });
   });
@@ -77,7 +77,7 @@ describe("pop-hovers reflect properly on hovering", () => {
     const termsAndConditions = screen.getByText("Terms and Conditions");
 
     user.unhover(termsAndConditions).then(() => {
-      const queryItem = screen.queryByText(/why did you hover?/i);
+      const queryItem = screen.queryByText(/Conditions?/i);
       expect(queryItem).not.toBeInTheDocument();
     });
   });
