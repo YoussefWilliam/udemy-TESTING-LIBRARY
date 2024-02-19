@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import SummaryForm from "../summary/SummaryForm";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../test-utils/testing-libraries-utils";
 import userEvent from "@testing-library/user-event";
 
 test("checkbox not clicked by default", () => {
@@ -53,19 +53,21 @@ describe("pop-hovers reflect properly on hovering", () => {
   test("is initially not yet displayed before hovering", () => {
     render(<SummaryForm />);
     const queryItem = screen.queryByText(
-      /No ice cream will actually be delivered/i
+      /no ice cream will actually be delivered/i
     );
     expect(queryItem).not.toBeInTheDocument();
   });
 
   test("is displayed upon hovering", async () => {
     render(<SummaryForm />);
-    const user = await userEvent.setup();
+    const user = userEvent.setup();
 
     const termsAndConditions = screen.getByText("Terms and Conditions");
 
-    user.hover(termsAndConditions).then(() => {
-      const queryItem = screen.getByText(/Conditions?/i);
+    await user.hover(termsAndConditions).then(() => {
+      const queryItem = screen.getByText(
+        /no ice cream will actually be delivered/i
+      );
       expect(queryItem).toBeInTheDocument();
     });
   });
@@ -77,7 +79,9 @@ describe("pop-hovers reflect properly on hovering", () => {
     const termsAndConditions = screen.getByText("Terms and Conditions");
 
     user.unhover(termsAndConditions).then(() => {
-      const queryItem = screen.queryByText(/Conditions?/i);
+      const queryItem = screen.queryByText(
+        /no ice cream will actually be delivered/i
+      );
       expect(queryItem).not.toBeInTheDocument();
     });
   });
